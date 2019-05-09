@@ -1,0 +1,17 @@
+{% extends "post/base.html" %}
+	{% block title %}Email驗證{% endblock %}
+		{% block style %}<style>
+		.a{
+			cursor: pointer;
+		}
+	</style>{% endblock %}
+
+	{% block content %}
+	<form action="/user/send_again/" method="post">
+		{%csrf_token%}
+		<p>您尚未進行Email驗證!</p>
+		<input type="hidden" name="Email" value="{{ email }}">
+		<input type="submit" class="a" value="重新寄送驗證信">
+	</form>
+
+	{% endblock %}

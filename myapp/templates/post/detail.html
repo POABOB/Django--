@@ -1,0 +1,39 @@
+{% extends "post/base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block style %}
+<style>
+  .align{
+    margin-left:200px;
+    margin-right:200px;
+    width:80%;
+  }
+  hr.style-one {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+</style>
+{% endblock %}
+
+{% block content %}
+	<!-- Section One -->
+	<div class="wrapper style2">
+		<section class="container">
+			<div class="row double">
+				<div class="10u">
+					<div class="align">
+						<h1>{{ post.title }}</h1>
+						<p class="date">
+						Published {{ post.publish }} by {{ post.author }}
+						</p>
+ 						 {{ post.body|safe}}
+					</div>
+				</div>
+
+			</div>
+		</section>
+	</div>
+
+
+{% endblock %}

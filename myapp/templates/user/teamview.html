@@ -1,0 +1,91 @@
+{% extends "post/base2.html" %}
+{% block title %}我的隊伍{% endblock %}
+		{% block style %}<style>
+		.T{
+			color: green;
+		}
+		.F{
+			color: red;
+		}
+		.align{
+			text-align: middle;
+		}
+		hr.style-one {
+		border: 0;
+		height: 1px;
+		background: #333;
+		background-image: linear-gradient(to right, #ccc, #333, #ccc);
+		}
+	</style>{% endblock %}
+{% block content %}
+{% if "email" in request.session %}
+		<!-- Main -->
+			<div id="main" class="wrapper style4">
+				<div class="container">
+					<div class="row">
+						<!-- Content -->
+						<div id="content" class="10u skel-cell-important">
+							<section>
+								<header class="major">
+									<h3>開放報名中 (第一階段)</h3>
+									<t>第一階段開放時間 2018.12.03 → 2018.12.09</t>
+									<br><t>第二階段開放時間 2018.12.12 → 2018.12-18</t></br>
+									<br>
+									{% if team1 is None%}
+												<p>目前沒有隊伍!</p>
+											{% else %}
+											<table class="default">
+													<tr><h1>隊伍名稱:{{ team.TeamName }}</h1></tr>
+													<th>名字</th>
+													<th>學號</th>
+													<th>生日</th>
+													<th>體保生</th>
+													<th>外籍生</th>
+													<th>身分證</th>
+													<th>手機</th>
+													<th>身分</th>
+													<th>大頭照</th>
+													<th>學生證(正)</th>
+													<th>學生證(反)</th>
+													<th>第二證件(正)</th>
+													{% for i in team1 %}
+														<tr>
+															<td>{{ i.member }}</td>
+															<td>{{ i.std_id }}</td>
+															<td>{{ i.birthday }}</td>
+															{% if i.is_PE == 1 %}
+																<td>是</td>
+															{% else %}
+																<td>否</td>
+															{% endif %}
+															{% if i.is_foreign %}}
+																<td>是</td>
+															{% else %}
+																<td>否</td>
+															{% endif %}
+															<td>{{ i.id_number }}</td>
+															<td>{{ i.cellphone }}</td>
+															<td>{{ i.position }}</td>
+															<td><a href="{{i.pic_1.url}}"><img src="{{i.pic_1.url}}" height="80px" width="100px"></a></td>
+															<td><a href="{{i.pic_2.url}}"><img src="{{i.pic_2.url}}" height="80px" width="100px"></a></td>
+															<td><a href="{{i.pic_3.url}}"><img src="{{i.pic_3.url}}" height="80px" width="100px"></a></td>
+															<td><a href="{{i.pic_4.url}}"><img src="{{i.pic_4.url}}" height="80px" width="100px"></a></td>
+														</tr>
+													{% endfor %}
+												</table>
+											{% endif %}
+											{% if team.upload_paid|length > 5 %}
+											<h3>繳費照</h3>
+											<a href="{{team.upload_paid.url}}"><img src="{{team.upload_paid.url}}" height="80px" width="100px"></a>
+											<a href="/user/upload_paid_delete/{{team.id}}/">刪除繳費照</a><br>
+											{% endif %}
+											<a href="/user/myteam/" class="align">返回</a>
+								</header>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+	{% endif %}
+{% endblock %}

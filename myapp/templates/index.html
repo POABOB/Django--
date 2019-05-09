@@ -1,0 +1,46 @@
+{% extends "post/base.html" %}
+{% block title %}首頁{% endblock %}
+{% block style %}
+<style>
+	.align{
+		margin-left:200px;
+		margin-right:200px;
+		width:80%;
+	}
+	table.default{
+		text-align:center;
+		margin-left:130px;
+		margin-right:130px
+	}
+</style>
+{% endblock %}
+{% block content %}
+	<!-- Section One -->
+	<div class="wrapper style2">
+		<section class="container">
+			<div class="row double">
+				<div class="6u">
+					<div class="align">
+						<h3>最新資訊</h3>
+						<table class="default">
+							<tr>
+								<th>發布日期</th>
+								<th>標題</th>
+							</tr>
+							{% for i in posts %}
+							<tr>
+								<td text-align="center">{{i.publish}}</td>
+								<td text-align="center"><a href="{{i.get_absolute_url}}">{{i.title}}</a></td>
+							</tr>
+							{% endfor %}
+						</table>
+					</div>
+				</div>
+
+			</div>
+		</section>
+	</div>
+
+
+
+{% endblock %}

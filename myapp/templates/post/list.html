@@ -1,0 +1,49 @@
+{% extends "post/base.html" %}
+{% block title %}公告{% endblock %}
+{% block style %}
+<style>
+  .align{
+    margin-left:200px;
+    margin-right:200px;
+    width:80%;
+  }
+  hr.style-one {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+</style>
+{% endblock %}
+{% block content %}
+    <!-- Section One -->
+        <div class="wrapper style2">
+          <section class="container">
+            <div class="row double">
+              <div class="10u">
+                <div  class="align">
+                <h1>公告</h1>
+                <hr class="style-one">
+                  {% for post in posts %}
+                    <h2>
+                      <a href="{{ post.get_absolute_url }}">
+                        {{ post.title }}
+                      </a>
+                    </h2>
+                    <p class="date">
+                      Published {{ post.publish }} by {{ post.author }}
+                    </p>
+                    {{ post.body|truncatewords:50|safe }}
+                    <hr class="style-one">
+
+                  {% endfor %}
+                  {% include "post/pagination.html" with page=posts %}
+                </div>
+              </div>
+
+
+            </div>
+          </section>
+        </div>
+
+{% endblock %}

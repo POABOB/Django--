@@ -1,0 +1,122 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="Shortcut Icon" type="image/x-icon" href="{% static "myapp/favicon.ico" %}"/>
+	<title>{% block title %}{% endblock %} | 2019全國大專院校資訊科系運動盃賽</title>
+	<meta http-equiv="content-type" content="text/html; charset=Big5" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<script src="{% static "myapp/js/jquery.min.js" %}"></script>
+	<script src="{% static "myapp/js/jquery.dropotron.min.js" %}"></script>
+	<script src="{% static "myapp/js/skel.min.js" %}"></script>
+	<script src="{% static "myapp/js/skel-layers.min.js" %}"></script>
+	<script src="{% static "myapp/js/init.js" %}"></script>
+	<link rel="stylesheet" href="{% static "myapp/css/skel.css" %}" />
+	
+	<link rel="stylesheet" href="{% static "myapp/css/style-new.css" %}" />
+	<link href="{% static "myapp/css.css" %}" rel="stylesheet">
+	<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	{% block style %}{% endblock %}
+	<style>
+		*{
+			font-family:sans-serif; 
+		}
+	</style>
+</head>
+<body class="homepage">
+	<!-- Header Wrapper -->
+			<div class="wrapper style1">
+			
+				<!-- Header -->
+					<div id="header">
+						<div class="container">
+								
+							
+							<!-- Logo -->
+								<h1><a href="/index/" id="logo">2019大資盃羽球</a></h1>
+							<!-- Nav -->
+							<nav id="nav">
+								<ul>
+								  <li class="active"><a href="/ann/">公告</a></li>
+									<li><a href="/bad_doc/">羽球章程</a></li>
+									<li>
+										<a href="">報名資訊</a>
+										<ul>
+											<li><a href="/ann/2018/11/27/explain/">準備事項</a></li>
+											<li><a href="/user/login/">報名系統</a></li>
+											<li><a href="/reg_status/">報名現況</a></li>
+											<li><a href="/view_teams/">出賽隊伍</a></li>
+                                            <li><a href="https://drive.google.com/file/d/19bkfV6Flu_9nkT3HbyIAl-PcQjDqBc-F/view?usp=sharing">秩序手冊</a></li>
+										</ul>
+									</li>                                    
+                                    <li>											
+                                                <a href="">羽球賽程</a>
+                                                <ul>
+                                                <li><a href="https://drive.google.com/file/d/1lwKGaFqxScCKYqZqLTVe7xMbKlG2DX42/view?usp=sharing">初賽賽程</a></li>
+                                                    <li><a href="https://drive.google.com/file/d/1MqIgPSbMMBKEP7BSTa4PJvxyqlq_ZFGo/view?usp=sharing">複賽賽程</a></li>
+                                                <li><a href="https://drive.google.com/file/d/1M5ByeIT7ivJ38P_PbtiAaJ0PRs1-N1EC/view?usp=sharing">賽程時間</a></li>
+
+                                                </ul>
+                                            </li>
+
+									<li>
+                                    	<a href="">迷途指南</a>
+										<ul>
+											<li><a href="/q_a/">Ｑ＆Ａ</a></li>
+											<li><a href="/traffic/">交通住宿資訊</a></li>
+											<li><a href="/food/">飲食相關</a></li>
+											<li><a href="/insurance/">保險資訊</a></li>
+										</ul>  
+                                    </li>                                  
+									<li><a href="/donate/">贊助</a></li>                                    
+								</ul>
+							</nav>
+					</div>
+				</div>
+				<!-- Banner -->
+				<div id="banner">
+					<section class="container">
+					  <span>　　　
+						<br>
+                    	<br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    	<br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    　　</span>
+					</section>
+				</div>
+			</div>
+			{% block content %}{% endblock %}
+	<!-- Footer -->
+		<div id="footer">
+			<section class="container">
+				<header class="major">
+					<h3>聯絡我們</h3>
+				</header>
+				<ul class="icons">
+					<li class="active"><a href="https://www.facebook.com/2019%E5%A4%A7%E8%B3%87%E7%9B%83-750720528613543/?ref=br_rs" class="fa fa-facebook"><span>Facebook</span></a></li>
+				</ul>
+			</section>
+			
+			<!-- Copyright -->
+				<div id="copyright">
+					Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
+				</div>			
+		</div>
+
+</body>
+	<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+	{% block script %}
+	{% endblock %}
+
+</html>

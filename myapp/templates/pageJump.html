@@ -1,0 +1,35 @@
+{% extends "post/base.html" %}
+	{% block title %}訊息{% endblock %}
+	{% block legend %}訊息{% endblock %}
+	{% block content %}
+		<!-- Section One -->
+	<div class="wrapper style2">
+		<section class="container">
+			<div class="row double">
+				<div class="6u">
+					<div class="align">
+						{{ message }}<span id="show"></span>
+						<input type="hidden" class="url" value="{{ message_url }}">
+					</div>
+				</div>
+
+			</div>
+		</section>
+	</div>
+	
+	{% endblock %}
+	{% block script %}
+	<script>
+　　var t=1;//設定跳轉的時間
+　　setInterval("refer()",1000); //啟動1秒定時
+　　function refer(){
+　　　　if(t==0){
+　　　　　　location=$('.url').val(); //#設定跳轉的鏈接地址
+　　　　}
+　　　　document.getElementById('show').innerHTML=""+t+"秒後跳轉..."; // 顯示倒計時
+　　　　t--; // 計數器遞減
+　　　　//本文轉自：
+　　}
+	</script>
+	
+	{% endblock %}

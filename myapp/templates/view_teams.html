@@ -1,0 +1,39 @@
+{% extends "post/base.html" %}
+  {% block title %}報名現況{% endblock %}
+  {% block style %}<style>
+    .a{
+      cursor: pointer;
+    }
+      .align{
+    margin-left:200px;
+    margin-right:200px;
+    width:80%;
+    }
+        .T{
+      color: green;
+    }
+    .F{
+      color: red;
+    }
+    hr.style-one {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+    }
+  </style>{% endblock %}
+  {% block content %}
+	    <!-- Section One -->
+        <div class="wrapper style2">
+          <section class="container">
+            <div class="row double">
+              <div class="10u">
+                <div  class="align">
+                	<p>目前尚無出賽隊伍資訊，詳情請稍待報名截止!!!</p>
+                </div>
+              </div>
+
+            </div>
+          </section>
+        </div>
+  {% endblock %}

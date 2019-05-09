@@ -1,0 +1,73 @@
+{% extends "post/base.html" %}
+	{% block title %}交通住宿資訊{% endblock %}
+	{% block style %}<style>
+		.a{
+			cursor: pointer;
+		}
+		  .align{
+		margin-left:200px;
+		margin-right:200px;
+		width:80%;
+		}
+		hr.style-one {
+		border: 0;
+		height: 1px;
+		background: #333;
+		background-image: linear-gradient(to right, #ccc, #333, #ccc);
+		}
+	</style>{% endblock %}
+	{% block content %}
+	    <!-- Section One -->
+        <div class="wrapper style2">
+          <section class="container">
+            <div class="row double">
+              <div class="10u">
+                <div  class="align">	
+                <h1>交通</h1>
+                <p></p>
+                <h4>國立彰化師範大學-進德校區 2F羽球館</h4>
+               
+                <p>公車<br />
+                →搭乘 彰化1 至彰化師大站下車→步行至彰師大進德校區<br />
+                →搭乘 6933 往台中方向 至原民館站下車→步行至彰師大進德校區<br />
+                →搭乘 6933A 往台中高鐵站方向 至原民館站下車→步行至彰師大進德校區<br />
+                    →搭乘 6935 往台中 至原民館站下車→步行至彰師大進德校區<br /></p>
+
+                <p>汽車<br />
+                沿著中正路一段轉中山路三段，並且右轉，順著實踐路即可到達。
+                </p>
+                <img src="https://i.imgur.com/Goysoib.png" width="800px">
+                <p></p>
+                <hr class="style-one">
+                <p></p>
+                <h4>羽球館</h4>
+                <img src="https://i.imgur.com/hhopRmJ.jpg" width="820px">
+                <p></p>
+                <hr class="style-one">
+                <p></p>
+                <h4>彰北國民運動中心</h4>
+                <p>汽車<br/>
+                沿著三民路走到底左轉，直走後會看到陸橋，上橋後直走的右側即為彰北國民運動中心</p>
+                <img src="https://i.imgur.com/pfJS0W5.png" width="800px">
+                <p></p>
+                <hr class="style-one">
+                <p></p>
+                <h1>住宿</h1>
+                <p></p>
+                <p><h4>台灣大飯店</h4><br />
+                地址: 彰化縣彰化市中正路二段48號<br />
+                聯絡電話: (04)722-4681<br />
+                </p>
+                <p><h4>心旅地圖青年旅館</h4><br />
+                地址: 彰化縣彰化市三民路230號<br />
+                聯絡電話: 0985-680-812<br/>
+                </p>
+
+                </div>
+              </div>
+
+            </div>
+          </section>
+        </div>
+	
+	{% endblock %}

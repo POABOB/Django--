@@ -1,0 +1,24 @@
+{% extends "post/base.html" %}
+	{% block title %}更改密碼{% endblock %}
+	{% block style %}<style>
+		.a{
+			cursor: pointer;
+		}
+		.b{
+			color: red;
+		}
+	</style>{% endblock %}
+	{% block legend %}更改密碼{% endblock %}
+	{% block content %}
+	<p>請輸入您的新密碼:</p>
+	<form action="{% url 'modify' %}" method="post">
+		{%csrf_token%}
+		<p class="b">{{ msg }}</p>
+		<p><label for="id_pass1">新的密碼：</label><input type="password" name="pass1" maxlength="30" minlength="6" required id="id_pass1"></p>
+		<p><label for="id_pass2">密碼確認：</label><input type="password" name="pass2" maxlength="30" minlength="6" id="id_pass2"></p>
+		<input type="hidden" name="Email" value="{{ email }}">
+		<p><input type="submit" class="a" value="送出"></p><br><br><br><br><br><br><br><br>
+		
+
+	</form>
+	{% endblock %}

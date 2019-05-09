@@ -1,0 +1,45 @@
+{% extends "post/base.html" %}
+	{% block title %}登入{% endblock %}
+	{% block style %}<style>
+		.a{
+			cursor: pointer;
+		}
+		  .align{
+		margin-left:200px;
+		margin-right:200px;
+		width:80%;
+		}
+		hr.style-one {
+		border: 0;
+		height: 1px;
+		background: #333;
+		background-image: linear-gradient(to right, #ccc, #333, #ccc);
+		}
+	</style>{% endblock %}
+	{% block legend %}登入{% endblock %}
+	{% block content %}
+	    <!-- Section One -->
+        <div class="wrapper style2">
+          <section class="container">
+            <div class="row double">
+              <div class="10u">
+                <div  class="align">
+                	<h2>請輸入您的帳號密碼:</h2>
+					<form action="." method="post">
+						
+						{%csrf_token%}
+						{{ form.as_p }}
+						<p><input type="submit" class="a" value="送出"></p>
+						<p><a href="/user/register/">註冊</a>|<a href="/user/forget/">忘記密碼</a><br></p>
+						<p><a href="/pre/">使用說明</a></p>
+						
+
+					</form>
+                </div>
+              </div>
+
+            </div>
+          </section>
+        </div>
+	
+	{% endblock %}

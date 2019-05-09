@@ -1,0 +1,111 @@
+{% extends "post/base2.html" %}
+{% block title %}羽球報名{% endblock %}
+		{% block style %}<style>
+		.a{
+			cursor: pointer;
+		}
+		.T{
+			color: green;
+		}
+		.F{
+			color: red;
+		}
+				  hr.style-one {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+	</style>{% endblock %}
+{% block content %}
+		<!-- Main -->
+			<div id="main" class="wrapper style4">
+				<div class="container">
+					<div class="row">
+						<!-- Sidebar -->
+						<div id="sidebar" class="2u">
+							<section>
+								<header class="major">	
+									{% if "email" in request.session %}
+									Hello，{{ request.session.email }}
+								</header>									
+								<ul class="default">
+									<li><a href="/user/main/">報名首頁</a></li>
+									<li><a href="/user/join/">羽球報名</a></li>
+									<li><a href="/user/myteam/">我的隊伍</a></li>
+									<li><a href="/user/logout/">登出</a></li>
+								</ul>
+							</section>
+						</div>
+								<!-- Content -->
+						<div id="content" class="10u skel-cell-important">
+							<section>
+								<header class="major">
+									{% if date == 1 %}
+
+				{% if teamNum1 < 2%}
+					<p>請輸入隊名:</p>
+					<form action="." method="post">
+					{{ form.as_p }}
+					{%csrf_token%}
+
+					<p><input type="submit" class="a" value="送出"></p>
+					</form>
+					
+				{% else %}
+				{% endif %}
+				{% if teamNum1 == 1 and teamNum2 == 1 %}
+				<hr class="style-one">
+				{% else %}
+				{% endif %}
+				{% if teamNum2 != 0 %}
+				
+					<p>請先編輯隊員，將隊員填入表單，並且確實提交!<span class="F">如未提交，將不予以審核!</span></p>
+					<table class="default">
+						<th>隊伍名稱</th>
+						<th>申請狀態</th>
+						<th>隊員人數</th>
+						<th>繳費狀態</th>
+						<th>審核狀態</th>
+						<th>動作</th>
+						{% for i in team %}
+							<tr>
+								<td>{{ i.TeamName }}</td>
+								{% if i.is_active == 1 %}
+									<td class="T">已提交</td>
+								{% else %}
+									<td class="F">未提交</td>
+								{% endif %}
+								
+								{% if i.memberNum < 7 %}
+								<td class="F">{{ i.memberNum }}</td>
+								{% else %}
+								<td class="T">{{ i.memberNum }}</td>
+								{% endif %}
+								
+								{% if i.is_pass == 1 %}
+									<td class="T">已審核</td>
+								{% else %}
+									<td class="F">待審核</td>
+								{% endif %}
+								{% if i.is_paid == 1 %}
+									<td class="T">已審核</td>
+								{% else %}
+									<td class="F">待審核</td>
+								{% endif %}
+								<td><a href="/user/addmember/{{i.id}}/">編輯</a>/<a href="/user/deleteteam/{{i.id}}/">刪除</a></td>
+							</tr>
+						{% endfor %}
+							</table>
+						{% endif %}
+						{% else %}
+							<p class="a">已經超過報名時間!!!</p>
+						{% endif %}
+								</header>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+{% endblock %}

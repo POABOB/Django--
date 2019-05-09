@@ -1,0 +1,71 @@
+{% extends "post/base.html" %}
+	{% block title %}報名現況{% endblock %}
+	{% block style %}<style>
+		.a{
+			cursor: pointer;
+		}
+		  .align{
+		margin-left:200px;
+		margin-right:200px;
+		width:80%;
+		}
+				.T{
+			color: green;
+		}
+		.F{
+			color: red;
+		}
+		hr.style-one {
+		border: 0;
+		height: 1px;
+		background: #333;
+		background-image: linear-gradient(to right, #ccc, #333, #ccc);
+		}
+	</style>{% endblock %}
+	{% block content %}
+	    <!-- Section One -->
+        <div class="wrapper style2">
+          <section class="container">
+            <div class="row double">
+              <div class="10u">
+                <div  class="align">
+                {% if team|length == 0 %}
+                	<p>目前尚無隊伍報名!!!</p>
+                {% else%}
+                	<span>尚餘{{ team_check_ok }}/40隊   </span><span>審核中:{{ team_be_check }}   </span><span>已成功報名:{{ team_check_ok }}</span>
+                	<table class="default">
+                		<tr>
+                			<th>隊伍</th>
+                			<th>資料確認</th>
+                			<th>繳費確認</th>
+                			<th>報名確認</th>
+                		</tr>
+                		{% for i in team %}
+                		<tr>
+                			<td>{{ i.TeamName }}</td>
+                			{% if i.is_check == 1 %}
+								<td class="T">已確認</td>
+							{% else %}
+								<td class="F">尚未確認</td>
+							{% endif %}
+                			{% if i.is_paid == 1 %}
+								<td class="T">已確認</td>
+							{% else %}
+								<td class="F">尚未確認</td>
+							{% endif %}
+                			{% if i.is_pass == 1 %}
+								<td class="T">已確認</td>
+							{% else %}
+								<td class="F">尚未確認</td>
+							{% endif %}
+                		</tr>
+                		{% endfor %}
+                	</table>
+                {% endif %}
+                </div>
+              </div>
+
+            </div>
+          </section>
+        </div>
+	{% endblock %}
